@@ -50,5 +50,7 @@ Windows/data_files/users.txt
 Windows/data_files/badAdmins.txt
 Windows/data_files/goodAdmins.txt
 Windows/data_files/admins.txt
+Windows/data_files/missingUsers.txt
+Windows/data_files/missingAdmins.txt
 Windows/dev_scripts/readme.md
 Windows/dev_scripts/tempUsers.ps1
