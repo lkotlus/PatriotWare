@@ -12,11 +12,40 @@ Switch($Selection) {
         "Oh, fun!"
 
         $badAdmins = Get-Content data_files\badAdmins.txt
-        .\functions\yn.ps1 "Would you like to delete the following users?`n${badAdmins}`n(y/n)" "Cool" "Cool, exiting. Make sure to edit the data_files\badUsers.txt file and come back!" "-d" "-e"
+        $missingAdmins = Get-Content data_files\missingAdmins.txt
+        
+        $String = Write-Output "Would you like to remove the following users from Administrators?`n${badAdmins}`n(y/n)"
+        $Selection = Read-Host $String
+        switch ($Selection) {
+            'y' {
+                Write-Output "Cool"
+            }
+            'n' {
+                Write-Output "Cool, exiting. Make sure to edit the data_files\badAdmins.txt file and come back!"
+                Exit 1
+            }
+        }        
 
         foreach ($badAdmin in $badAdmins) {
             Write-Output "User $badAdmin is no longer an administrator."
             Remove-LocalGroupMember -Group "Administrators" -Member $badAdmin
+        }
+
+        $String = Write-Output "Would you like to add the following users to Administrators?`n${missingAdmins}`n(y/n)"
+        $Selection = Read-Host $String
+        switch ($Selection) {
+            'y' {
+                Write-Output "Cool"
+            }
+            'n' {
+                Write-Output "Cool, exiting. Make sure to edit the data_files\missingAdmins.txt file and come back!"
+                Exit 1
+            }
+        }    
+
+        foreach ($missingAdmin in $missingAdmins) {
+            Write-Output "User $missingAdmin is now an administrator."
+            Add-LocalGroupMember -Group "Administrators" -Member $badAdmin
         }
 
         Exit 1
@@ -50,10 +79,14 @@ $goodAdmins = Get-Content data_files\goodAdmins.txt
 $badAdmins = Compare-Object $goodAdmins $admins -PassThru | Where-Object {
     $_.SideIndicator -eq "=>"
 }
+$missingAdmins = Compare-Object $goodAdmins $admins -PassThru | Where-Object {
+    $_.SideIndicator -eq "<="
+}
 
 Write-Output $badAdmins > data_files\badAdmins.txt
+Write-Output $missingAdmins > data_files\missingAdmins.txt
 
-$String = Write-Output "Would you like to delete the following users?`n${badAdmins}`n(y/n)"
+$String = Write-Output "Would you like to remove the following users from Administrators?`n${badAdmins}`n(y/n)"
 $Selection = Read-Host $String
 switch ($Selection) {
     'y' {
@@ -68,6 +101,23 @@ switch ($Selection) {
 foreach ($badAdmin in $badAdmins) {
     Write-Output "User $badAdmin is no longer an administrator."
     Remove-LocalGroupMember -Group "Administrators" -Member $badAdmin
+}
+
+$String = Write-Output "Would you like to add the following users to Administrators?`n${missingAdmins}`n(y/n)"
+$Selection = Read-Host $String
+switch ($Selection) {
+    'y' {
+        Write-Output "Cool"
+    }
+    'n' {
+        Write-Output "Cool, exiting. Make sure to edit the data_files\missingAdmins.txt file and come back!"
+        Exit 1
+    }
+}    
+
+foreach ($missingAdmin in $missingAdmins) {
+    Write-Output "User $missingAdmin is now an administrator."
+    Add-LocalGroupMember -Group "Administrators" -Member $badAdmin
 }
 
 Write-Output "Thank you and have fun."

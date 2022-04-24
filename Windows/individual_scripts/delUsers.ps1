@@ -26,6 +26,7 @@ function cut {
         ($inputobject -split $delimiter)[$field] }
     }
 }
+#The above function was stolen from stack overflow. What are you gonna do, cry?
 
 $String = "Have you come after editing the data_files\badUsers.txt file? (y/n)"
 $Selection = Read-Host $String
@@ -51,8 +52,6 @@ Switch($Selection) {
         "Bepic, moving on..."
     }
 }
-
-#The above function was stolen from stack overflow. What are you gonna do, cry?
 
 Write-Output "" > data_files\badUsers.txt
 
