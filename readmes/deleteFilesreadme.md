@@ -1,0 +1,3 @@
+# individual_scripts/deleteFiles.sh
+
+If you don't need customization, just run the script, and it will find the most common files that are considered to be 'bad' in CyberPatriot. If you want to delete more filetypes just add them. To run with custom filetypes run it like this: ./deleteFiles.sh .txt .pl .exe etc...
