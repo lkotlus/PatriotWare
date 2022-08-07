@@ -53,6 +53,7 @@ Windows/data_files/admins.txt
 Windows/data_files/missingUsers.txt
 Windows/data_files/missingAdmins.txt
 Windows/data_files/scheduledTasks.txt
+Windows/data_files/files.txt
 Windows/data_files/passthrough.txt
 Windows/dev_scripts/readme.md
 Windows/dev_scripts/tempUsers.ps1
