@@ -17,3 +17,7 @@ New-Item data_files\missingAdmins.txt 2>&1>$null
 New-Item data_files\missingUsers.txt 2>&1>$null
 New-Item data_files\passthrough.txt 2>&1>$null
 New-Item data_files\scheduledTasks.txt 2>&1>$null
+
+# Installing modules for updates
+
+Install-Module PSWindows-Update

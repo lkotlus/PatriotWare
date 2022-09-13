@@ -12,6 +12,6 @@ $badServices = @("SharedAccess","XblAuthManager","WbioSrvc","lfsvc","TermService
 foreach ($badService in $badServices) {
     $service = Get-Service -Name $badService -erroraction 'silentlycontinue' 
     Stop-Service -InputObject $service -Force -erroraction 'silentlycontinue' 
-    Set-Service $badService -StartupType Disabled -erroraction 'silentlycontinue' 
+    Set-Service -InputObject $service -StartupType Disabled -erroraction 'silentlycontinue' 
     Write-Output "Done with the service: $badService`n" 
 }

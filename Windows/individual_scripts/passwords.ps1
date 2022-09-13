@@ -21,6 +21,11 @@ switch ($Selection) {
         net accounts /uniquepw:$Selection
         $Selection = Read-Host "Please enter the lockout threshold (Recommended: 3)"
         net accounts /lockoutthreshold:$Selection
+        $Selection = Read-Host "Enter whatever you want, I'm setting password complexity requirements to enabled. N00bs G3t pwnd."
+        secedit /export /cfg c:\secpol.cfg
+        (Get-Content C:\secpol.cfg).replace("PasswordComplexity = 0", "PasswordComplexity = 1") | Out-File C:\secpol.cfg
+        secedit /configure /db c:\windows\security\local.sdb /cfg c:\secpol.cfg /areas SECURITYPOLICY
+        Remove-Item -force c:\secpol.cfg -confirm:$false
         $Selection = Read-Host "Please enter the lockout duration (Recommended: 15, must be >= current lockout window)"
         net accounts /lockoutduration:$Selection
         $Selection = Read-Host "Please enter the lockout window (Recommended: 15, must be <= lockout duration)"
