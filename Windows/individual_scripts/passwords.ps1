@@ -19,7 +19,7 @@ switch ($Selection) {
         net accounts /minpwage:$Selection
         $Selection = Read-Host "Please enter the number of unique passwords stored (Recommended: 5)"
         net accounts /uniquepw:$Selection
-        $Selection = Read-Host "Please enter the lockout threshold (Recommended: 3)"
+        $Selection = Read-Host "Please enter the lockout threshold (Recommended: 5)"
         net accounts /lockoutthreshold:$Selection
         $Selection = Read-Host "Enter whatever you want, I'm setting password complexity requirements to enabled. N00bs G3t pwnd."
         secedit /export /cfg c:\secpol.cfg
