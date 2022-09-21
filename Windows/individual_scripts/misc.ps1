@@ -30,3 +30,21 @@ secedit /export /cfg c:\secpol.cfg
 secedit /configure /db c:\windows\security\local.sdb /cfg c:\secpol.cfg /areas SECURITYPOLICY
 Remove-Item -force c:\secpol.cfg -confirm:$false
 Write-Output "Done!"
+
+Write-Output "Doing shared drive stuff...`n"
+$shares = Get-WmiObject -class Win32_Share | Select-Object Name
+foreach ($share in $shares) {
+    Write-Output $share.Name
+    $String = Write-Output "Would you like to remove the above shared drive (ADMIN$, C$, and IPC$ are default, but can be deleted anyway)? (y/n)"
+    $Selection = Read-Host $String
+    switch ($Selection) {
+        'y' {
+            Write-Output "Lit, removing..."
+            Remove-SmbShare -Name $share.Name
+            Write-Output "Done!`n"
+        }
+        'n' {
+            Write-Output "Okay, moving on to the next one.`n"
+        }
+    }
+}
