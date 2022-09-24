@@ -21,6 +21,7 @@ chmod +x functions/helpFunc.sh
 chmod +x functions/getUsersFunc.sh
 chmod +x functions/diffFunc.sh
 chmod +x functions/findFilesFunc.sh
+chmod +x megaScript.sh
 
 #
 ## making the necessary directories 
