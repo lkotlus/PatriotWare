@@ -15,10 +15,19 @@ chmod +x individual_scripts/apt.sh
 chmod +x individual_scripts/missingUsers.sh
 chmod +x individual_scripts/cron.sh
 chmod +x individual_scripts/ufw.sh
+chmod +x individual_scripts/group.sh
+chmod +x individual_scripts/sysctl.sh
 chmod +x functions/helpFunc.sh
 chmod +x functions/getUsersFunc.sh
 chmod +x functions/diffFunc.sh
 chmod +x functions/findFilesFunc.sh
+
+#
+## making the necessary directories 
+#
+
+mkdir pre_configured_apt_files/apt_ubu
+mkdir pre_configured_apt_files/apt_deb
 
 #
 ## making the necessary files and directories to pass around information, read information from, and write information to.
