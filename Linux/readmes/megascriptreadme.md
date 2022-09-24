@@ -18,3 +18,5 @@ passReq: 8
 passwords: 9
 sysctl: 10
 ufw: 11
+
+If you need to rup passwords.sh, make sure you provide the password as the SECOND argument.
