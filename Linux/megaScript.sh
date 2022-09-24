@@ -19,7 +19,7 @@ else
 fi
 
 #making an array of scripts
-scripts=("individual_scripts/delUsers.sh" "individual_scripts/missingUsers.sh" "individual_scripts/admin.sh" "individual_scripts/deleteFiles.sh" "individual_scripts/services.sh" "individual_scripts/apt.sh" "individual_scripts/cron.sh" "individual_scripts/packages.sh" "individual_scripts/passReq.sh" "individual_scripts/passwords.sh" "individual_scripts/sysctl.sh" "individual_scripts/ufw.sh")
+scripts=("individual_scripts/delUsers.sh" "individual_scripts/missingUsers.sh" "individual_scripts/admin.sh" "individual_scripts/deleteFiles.sh" "individual_scripts/services.sh" "individual_scripts/cron.sh" "individual_scripts/packages.sh" "individual_scripts/passReq.sh" "individual_scripts/passwords.sh" "individual_scripts/sysctl.sh" "individual_scripts/ufw.sh" "individual_scripts/apt.sh")
 
 startingPoint=$1
 
@@ -58,31 +58,31 @@ do
         fi
         if [ ${scripts[$i]} == ${scripts[5]} ]
         then
-            ./individual_scripts/apt.sh
+            ./individual_scripts/cron.sh
         fi
         if [ ${scripts[$i]} == ${scripts[6]} ]
         then
-            ./individual_scripts/cron.sh
+            ./individual_scripts/packages.sh
         fi
         if [ ${scripts[$i]} == ${scripts[7]} ]
         then
-            ./individual_scripts/packages.sh
+            ./individual_scripts/passReq.sh
         fi
         if [ ${scripts[$i]} == ${scripts[8]} ]
         then
-            ./individual_scripts/passReq.sh
+            ./individual_scripts/passwords.sh $2
         fi
         if [ ${scripts[$i]} == ${scripts[9]} ]
         then
-            ./individual_scripts/passwords.sh $2
+            ./individual_scripts/sysctl.sh
         fi
         if [ ${scripts[$i]} == ${scripts[10]} ]
         then
-            ./individual_scripts/sysctl.sh
+            ./individual_scripts/ufw.sh
         fi
         if [ ${scripts[$i]} == ${scripts[11]} ]
         then
-            ./individual_scripts/ufw.sh
+            ./individual_scripts/apt.sh
         fi
         echo
     fi
