@@ -74,7 +74,7 @@ do
         fi
         if [ ${scripts[$i]} == ${scripts[9]} ]
         then
-            ./individual_scripts/passwords.sh
+            ./individual_scripts/passwords.sh $2
         fi
         if [ ${scripts[$i]} == ${scripts[10]} ]
         then
