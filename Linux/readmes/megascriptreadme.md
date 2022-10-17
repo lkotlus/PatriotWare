@@ -1,9 +1,12 @@
 # megaScript.sh
 
 [IMPORTANT]
+
 CALL THIS WITH 0 FOR THE FIRST PARAM ON THE FIRST RUN!
 
+
 FILL OUT THE data_files/goodUsers.txt AND data_files/adminWhitelist.txt BEFORE RUNNING
+
 [IMPORTANT]
 
 megaScript will run all of the individual scripts. 
