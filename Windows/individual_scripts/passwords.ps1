@@ -40,7 +40,7 @@ switch ($Selection) {
 .\functions\getUsers.ps1 "data_files\users.txt"
 $users = Get-Content "data_files\users.txt"
 $passwd = $args[0]
-$String = Write-Output "Would you like to set EVERY USERS password to ${passwd}? (y/n)"
+$String = Write-Output "Would you like to set EVERY USERS password to `"${passwd}`"? (y/n)"
 $Selection = Read-Host $String
 switch ($Selection) {
     'y' {

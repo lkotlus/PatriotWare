@@ -7,7 +7,7 @@ if ($args[0] -eq "-h") {
     Exit 1
 }
 
-$badServices = @("SharedAccess","XblAuthManager","WbioSrvc","lfsvc","winftpsvc","TermService","XblGameSave","SensrSvc","WMPNetworkSvc","SSDPSRV","RemoteAccess","upnphost","NetTcpPortSharing","RemoteRegistry","dmwappushservice","XboxNetApiSvc","EventLog","MapsBroker","HomeGroupProvider","RpcLocator","bthserv","TrkWks","wuauserv","DcpSvc","WSearch","DiagTrack","WinHttpAutoProxySvc","SessionEnv","HomeGroupListener")
+$badServices = @("SharedAccess","XblAuthManager","WbioSrvc","lfsvc","ftpsvc","TermService","XblGameSave","SensrSvc","WMPNetworkSvc","SSDPSRV","RemoteAccess","upnphost","NetTcpPortSharing","RemoteRegistry","dmwappushservice","XboxNetApiSvc","EventLog","MapsBroker","HomeGroupProvider","RpcLocator","bthserv","TrkWks","wuauserv","DcpSvc","WSearch","DiagTrack","WinHttpAutoProxySvc","SessionEnv","HomeGroupListener")
 
 foreach ($badService in $badServices) {
     $service = Get-Service -Name $badService -erroraction 'silentlycontinue' 
