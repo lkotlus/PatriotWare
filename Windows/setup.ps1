@@ -20,4 +20,4 @@ New-Item data_files\scheduledTasks.txt 2>&1>$null
 
 # Installing modules for updates
 
-Install-Module PSWindows-Update
+Install-Module PSWindowsUpdate
