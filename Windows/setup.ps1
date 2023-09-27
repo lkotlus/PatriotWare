@@ -1,5 +1,5 @@
 if ($args[0] -eq "-noRestrict") {
-    Set-ExecutionPolicy unrestricted
+    Set-ExecutionPolicy Bypass
 }
 
 Unblock-File individual_scripts\*
