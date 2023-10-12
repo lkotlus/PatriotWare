@@ -208,6 +208,7 @@ rebind
 recon-ng
 redfang
 regripper
+remmina
 responder
 ridenum
 routersploit
