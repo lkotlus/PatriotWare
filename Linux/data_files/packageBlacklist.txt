@@ -53,6 +53,8 @@ dbd
 dc3dd
 ddrescue
 deblace
+deluge-common
+deluge-gtk
 dex2jar
 dff
 dhcpig
