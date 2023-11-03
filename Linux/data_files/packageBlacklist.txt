@@ -16,6 +16,7 @@ bed
 beef
 besside-ng
 bettercap
+ettercap-common
 binwalk
 blindepephant
 bluelog
